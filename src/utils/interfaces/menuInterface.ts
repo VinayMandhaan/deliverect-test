@@ -16,6 +16,7 @@ export interface Item {
     description: string;
     photo: string | null;
     category_id: string;
+    quantity?: number;
 }
 
 export interface MenuData {
