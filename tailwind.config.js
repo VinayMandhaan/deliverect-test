@@ -13,6 +13,10 @@ module.exports = {
       textColor: {
         heading: '#071C4D',
         textGrey: '#838DA6'
+      },
+      borderColor: {
+        menuBorder: '#F4F6F9',
+        inputBorder: '#EBEFF4'
       }
     },
   },
