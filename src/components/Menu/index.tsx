@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from "react"
-import { getMenuData } from "../../services/menu"
-import { CategoriesInterface, Item, MenuData } from "../../utils/interfaces/menuInterface"
+import { useContext } from "react"
+import { CategoriesInterface, Item } from "../../utils/interfaces/menuInterface"
 import MenuItem from "./MenuItem/index"
 import Categories from "./Categories/index"
 import Search from "./Search"
