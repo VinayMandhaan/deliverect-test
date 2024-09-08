@@ -1,18 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Image from "../../Generic/Image"
 import Input from "../../Generic/Input";
 import SearchIcon from '../../../assets/images/search.svg'
 import { MenuContext } from "../../../store";
 import { Item } from "../../../utils/interfaces/menuInterface";
 
-
-interface SearchProps {
-    searchText: string;
-    setSearchText: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const Search: React.FC<SearchProps> = ({ searchText, setSearchText }) => {
+const Search: React.FC = () => {
     const data = useContext(MenuContext)
+    const [searchText, setSearchText] = useState<string>('')
 
     const handleSearch = (text: string) => {
         setSearchText(text)

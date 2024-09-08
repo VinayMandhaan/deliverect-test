@@ -10,7 +10,6 @@ import Search from "./Search"
 const Menu = () => {
     const [menuData, setMenuData] = useState<MenuData | undefined>(undefined)
     const [filteredData, setFilteredData] = useState<MenuData | undefined>(undefined)
-    const [searchText, setSearchText] = useState<string>('')
 
     const getData = async () => {
         try {
@@ -30,7 +29,7 @@ const Menu = () => {
         <MenuContext.Provider value={{ menuData, filteredData, setFilteredData }}>
             <div className="w-full lg:w-[375px] relative">
                 <div className="m-[20px] mt-[50px]">
-                    <Search searchText={searchText} setSearchText={setSearchText} />
+                    <Search />
                     {
                         filteredData?.categories?.map((category: CategoriesInterface, index: number) => (
                             <>
