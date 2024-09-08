@@ -22,12 +22,15 @@ const Menu = () => {
 
     return (
         <MenuContext.Provider value={menuData}>
-            {
-                menuData?.categories?.map((category: CategoriesInterface, index:number) => (
-                    <Categories category={category} index={index}/>
-                ))
-            }
-            <MenuItems/>
+            <div className="w-full lg:w-[375px] relative">
+                <div className="m-[20px] mt-[50px]">
+                    {
+                        menuData?.categories?.map((category: CategoriesInterface, index: number) => (
+                            <Categories category={category} index={index} />
+                        ))
+                    }
+                </div>
+            </div>
         </MenuContext.Provider>
     )
 }
