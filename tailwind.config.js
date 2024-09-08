@@ -10,6 +10,10 @@ module.exports = {
         bold: "Inter-Bold",
         semibold: "Inter-Semibold",
       },
+      textColor: {
+        heading: '#071C4D',
+        textGrey: '#838DA6'
+      }
     },
   },
   plugins: [],

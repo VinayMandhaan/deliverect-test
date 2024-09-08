@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { getMenuData } from "../../services/menu"
-import { CategoriesInterface, MenuData } from "../../utils/interfaces/menuInterface"
+import { CategoriesInterface, Item, MenuData } from "../../utils/interfaces/menuInterface"
 import { MenuContext } from "../../store"
-import MenuItems from "../MenuItems"
+import MenuItem from "../MenuItem"
 import Categories from "../Categories"
 
 const Menu = () => {
@@ -26,7 +26,18 @@ const Menu = () => {
                 <div className="m-[20px] mt-[50px]">
                     {
                         menuData?.categories?.map((category: CategoriesInterface, index: number) => (
-                            <Categories category={category} index={index} />
+                            <>
+                                <Categories category={category} index={index} />
+                                {
+                                    menuData?.items?.map((item: Item, index: number) => {
+                                        if (category.id == item.category_id) {
+                                            return (
+                                                <MenuItem item={item} index={index} />
+                                            )
+                                        }
+                                    })
+                                }
+                            </>
                         ))
                     }
                 </div>
