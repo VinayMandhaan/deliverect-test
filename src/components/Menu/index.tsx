@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { getMenuData } from "../../services/menu"
-import { MenuData } from "../../utils/interfaces/menuInterface"
+import { CategoriesInterface, MenuData } from "../../utils/interfaces/menuInterface"
 import { MenuContext } from "../../store"
 import MenuItems from "../MenuItems"
+import Categories from "../Categories"
 
 const Menu = () => {
     const [menuData, setMenuData] = useState<MenuData | undefined>(undefined)
@@ -21,6 +22,11 @@ const Menu = () => {
 
     return (
         <MenuContext.Provider value={menuData}>
+            {
+                menuData?.categories?.map((category: CategoriesInterface, index:number) => (
+                    <Categories category={category} index={index}/>
+                ))
+            }
             <MenuItems/>
         </MenuContext.Provider>
     )

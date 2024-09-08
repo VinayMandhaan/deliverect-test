@@ -1,4 +1,4 @@
-export interface Categories {
+export interface CategoriesInterface {
     id: string;
     name: string;
     url: string
@@ -19,6 +19,6 @@ export interface Item {
 }
 
 export interface MenuData {
-    categories: Categories[];
+    categories: CategoriesInterface[];
     items: Item[]
 }
