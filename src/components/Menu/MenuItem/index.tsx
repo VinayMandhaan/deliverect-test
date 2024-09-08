@@ -1,9 +1,8 @@
-import { currency } from "../../../utils";
 import { Item } from "../../../utils/interfaces/menuInterface"
 import Heading from "../../Generic/Heading";
 import Image from "../../Generic/Image";
 import Paragraph from "../../Generic/Paragraph";
-import Price from "../../Price";
+import Price from "../Price/index";
 
 interface MenuItemProps {
     item: Item;

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import { getMenuData } from "../../services/menu"
 import { CategoriesInterface, Item, MenuData } from "../../utils/interfaces/menuInterface"
 import { MenuContext } from "../../store"
-import MenuItem from "./MenuItem"
-import Categories from "../Categories"
+import MenuItem from "./MenuItem/index"
+import Categories from "./Categories/index"
 
 const Menu = () => {
     const [menuData, setMenuData] = useState<MenuData | undefined>(undefined)

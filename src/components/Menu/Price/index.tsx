@@ -1,5 +1,5 @@
-import { currency } from "../../utils";
-import Paragraph from "../Generic/Paragraph";
+import { currency } from "../../../utils";
+import Paragraph from "../../Generic/Paragraph";
 
 interface PriceProps {
     price: number;

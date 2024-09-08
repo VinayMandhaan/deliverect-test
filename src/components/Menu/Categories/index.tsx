@@ -1,5 +1,5 @@
-import { CategoriesInterface } from "../../utils/interfaces/menuInterface"
-import Heading from "../Generic/Heading"
+import { CategoriesInterface } from "../../../utils/interfaces/menuInterface"
+import Heading from "../../Generic/Heading"
 
 interface CategoryProps {
     category: CategoriesInterface,
