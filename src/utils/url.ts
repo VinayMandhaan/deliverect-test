@@ -1,0 +1,1 @@
+export const baseUrl = "https://chatfood-cdn.s3.eu-central-1.amazonaws.com"
