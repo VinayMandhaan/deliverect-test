@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react"
 import Image from "."
 
 
-test('renders the categories name', () => {
+test('renders the image component and attributes', () => {
     const imageUrl = "www.google.com"
     const alt = 'test-image'
     render(<Image url={imageUrl} alt={alt}/>)
