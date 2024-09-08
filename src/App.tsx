@@ -1,12 +1,13 @@
 import './App.css';
 import Menu from './components/Menu';
+import MenuProvider from './store';
 
 
 const App = () => {
   return (
-    <div>
+    <MenuProvider>
       <Menu />
-    </div>
+    </MenuProvider>
   )
 }
 

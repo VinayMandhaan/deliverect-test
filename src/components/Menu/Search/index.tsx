@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import Image from "../../Generic/Image"
 import Input from "../../Generic/Input";
 import SearchIcon from '../../../assets/images/search.svg'
-import { MenuContext } from "../../../store";
 import { Item } from "../../../utils/interfaces/menuInterface";
+import { MenuContext } from "../../../store";
 
 const Search: React.FC = () => {
     const data = useContext(MenuContext)
