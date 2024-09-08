@@ -8,12 +8,10 @@ interface MenuItemProps {
     item: Item;
     index: number;
     cart: Item[],
-    addItemToCart: (item:Item) => void;
+    addItemToCart: (item: Item) => void;
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, addItemToCart }) => {
-
-    console.log(cart,'Cart')
 
     return (
         <div onClick={() => {

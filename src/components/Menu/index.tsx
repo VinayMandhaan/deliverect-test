@@ -18,6 +18,7 @@ const Menu = () => {
             let response = await getMenuData()
             setMenuData(response)
             setFilteredData(response)
+            
         } catch (err) {
             console.log(err)
         }
@@ -34,7 +35,7 @@ const Menu = () => {
                     <Search />
                     {
                         filteredData?.categories?.map((category: CategoriesInterface, index: number) => (
-                            <>
+                            <div key={index + Math.random()}>
                                 <Categories category={category} index={index} />
                                 {
                                     filteredData?.items?.map((item: Item, index: number) => {
@@ -45,7 +46,7 @@ const Menu = () => {
                                         }
                                     })
                                 }
-                            </>
+                            </div>
                         ))
                     }
                 </div>
