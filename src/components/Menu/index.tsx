@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { getMenuData } from "../../services/menu"
 import { MenuData } from "../../utils/interfaces/menuInterface"
+import { MenuContext } from "../../store"
+import MenuItems from "../MenuItems"
 
 const Menu = () => {
     const [menuData, setMenuData] = useState<MenuData | undefined>(undefined)
@@ -18,9 +20,9 @@ const Menu = () => {
     }, [])
 
     return (
-        <div>
-            <h1>Menu</h1>
-        </div>
+        <MenuContext.Provider value={menuData}>
+            <MenuItems/>
+        </MenuContext.Provider>
     )
 }
 
