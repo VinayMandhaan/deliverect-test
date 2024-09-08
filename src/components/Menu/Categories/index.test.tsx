@@ -8,7 +8,7 @@ const testCategory: CategoriesInterface = {
     url:'burger'
 }
 
-test('renders the categories name', () => {
+test("renders the categories name", () => {
     render(<Categories category={testCategory} index={1}/>)
     const heading = screen.getByText(testCategory.name)
     expect(heading).toBeInTheDocument()
