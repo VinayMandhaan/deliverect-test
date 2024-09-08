@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Item } from "../../../utils/interfaces/menuInterface"
 import Heading from "../../Generic/Heading";
 import Image from "../../Generic/Image";
@@ -8,43 +7,18 @@ import Price from "../Price/index";
 interface MenuItemProps {
     item: Item;
     index: number;
-    cart: Item[];
-    setCart:  React.Dispatch<React.SetStateAction<[] | Item[]>>;
+    cart: Item[],
+    addItemToCart: (item:Item) => void;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, setCart }) => {
+const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, addItemToCart }) => {
 
-    const addItemToCart = (menuItem: Item) => {
-        let filterItem = cart?.find((x: Item) => x.id === menuItem?.id);
-        if (filterItem && filterItem.quantity) {
-            if (filterItem?.quantity < filterItem?.stock?.availability) {
-                let updatedCart: Item[] = cart?.map((cart: Item) => {
-                    return cart?.id == menuItem?.id ? { ...cart, quantity: cart.quantity ? cart.quantity + 1 : 0 } : cart
-                })
-                setCart(updatedCart)
-            } else {
-                alert('Item out of stock')
-            }
-        } else {
-            let newCart = [...cart];
-            let payload = {
-                ...menuItem,
-                quantity: 1
-            };
-            newCart.push(payload);
-            setCart(newCart)
-        }
-    }
-
-   
-
-    console.log(cart,'CART')
-
+    console.log(cart,'Cart')
 
     return (
         <div onClick={() => {
             addItemToCart(item)
-        }}  key={index} className="pt-[20px] pb-[20px] border-b border-menuBorder">
+        }} key={index} className="pt-[20px] pb-[20px] border-b border-menuBorder">
             <div className="flex items-center justify-between">
                 <div className={item?.photo ? "w-[235px]" : "w-full"}>
                     <Heading title={item?.name} style="text-[16px]" />

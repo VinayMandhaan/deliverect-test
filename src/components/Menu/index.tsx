@@ -5,12 +5,13 @@ import { MenuContext } from "../../store"
 import MenuItem from "./MenuItem/index"
 import Categories from "./Categories/index"
 import Search from "./Search"
+import useCart from "../../hooks/cart"
 
 
 const Menu = () => {
     const [menuData, setMenuData] = useState<MenuData | undefined>(undefined)
     const [filteredData, setFilteredData] = useState<MenuData | undefined>(undefined)
-    const [cart, setCart] = useState<Item[] | []>([])
+    const { cart, addItemToCart } = useCart()
 
     const getData = async () => {
         try {
@@ -39,7 +40,7 @@ const Menu = () => {
                                     filteredData?.items?.map((item: Item, index: number) => {
                                         if (category.id == item.category_id) {
                                             return (
-                                                <MenuItem item={item} index={index} cart={cart} setCart={setCart} />
+                                                <MenuItem item={item} index={index} cart={cart} addItemToCart={addItemToCart} />
                                             )
                                         }
                                     })
