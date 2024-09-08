@@ -1,6 +1,6 @@
 
 interface HeadingProps {
-    title: string;
+    title: string | number;
     style?: string | null;
 }
 

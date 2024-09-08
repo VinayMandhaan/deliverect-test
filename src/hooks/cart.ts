@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Item } from "../utils/interfaces/menuInterface"
-import { getItem, storeItem } from "../storage"
+import { deleteItem, getItem, storeItem } from "../storage"
 
 
 const useCart = () => {
@@ -46,7 +46,12 @@ const useCart = () => {
         }
     }
 
-    return { cart, addItemToCart }
+    const resetCart = () => {
+        setCart([])
+        deleteItem('cart')
+    }
+
+    return { cart, addItemToCart, resetCart }
 
 }
 
