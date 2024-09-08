@@ -19,6 +19,6 @@ export interface Item {
 }
 
 export interface MenuData {
-    categories: CategoriesInterface[];
+    categories: CategoriesInterface[] | undefined;
     items: Item[]
 }
