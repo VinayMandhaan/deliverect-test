@@ -30,7 +30,7 @@ const Menu = () => {
                                 <Categories category={category} index={index} />
                                 {
                                     data?.filteredData?.items?.map((item: Item, index: number) => {
-                                        if (category.id == item.category_id) {
+                                        if (category.id === item.category_id) {
                                             return (
                                                 <MenuItem item={item} index={index} cart={cart} addItemToCart={addItemToCart} removeItemFromCart={removeItemFromCart} />
                                             )

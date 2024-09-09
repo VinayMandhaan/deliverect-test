@@ -27,7 +27,7 @@ test("to test if search return results", () => {
     const inputElement = screen.getByPlaceholderText("Search for dishes...")
     fireEvent.change(inputElement, {target: {value: searchValue}})
     expect(setFilteredData).toHaveBeenCalledWith({
-        categories:testData.categories,
+        categories:[testData.categories[0]],
         items:[testData.items[0]]
     })
 })
@@ -38,7 +38,7 @@ test("to test if search return empty", () => {
     const inputElement = screen.getByPlaceholderText("Search for dishes...")
     fireEvent.change(inputElement, {target: {value: searchValue}})
     expect(setFilteredData).toHaveBeenCalledWith({
-        categories:testData.categories,
+        categories:[],
         items:[]
     })
 })

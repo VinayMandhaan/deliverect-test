@@ -13,7 +13,7 @@ interface MenuItemProps {
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, addItemToCart, removeItemFromCart }) => {
-    let cartItem = cart.find(x => x.id == item?.id)
+    let cartItem = cart.find(x => x.id === item?.id)
 
     return (
         <div key={index} className="pt-[20px] pb-[20px] border-b border-menuBorder">
