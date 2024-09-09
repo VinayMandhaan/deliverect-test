@@ -17,11 +17,11 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, addItemToCart, r
 
     return (
         <div key={index} className="pt-[20px] pb-[20px] border-b border-menuBorder">
-            <div className="cursor-pointer flex items-center justify-between">
-                <div className={item?.photo ? "w-[235px]" : "w-full"}>
-                    <div onClick={() => {
+            <div onClick={() => {
                         addItemToCart(item)
-                    }}>
+                    }} className="cursor-pointer flex items-center justify-between">
+                <div className={item?.photo ? "w-[235px]" : "w-full"}>
+                    <div>
                         <Heading title={item?.name} style="text-[16px]" />
                         <Paragraph title={item?.description} style="text-textGrey text-ellipsis line-clamp-2 overflow-hidden mt-2" />
                         <div className="mt-2">

@@ -7,7 +7,8 @@ import useCart from "../../hooks/cart"
 import Heading from "../Generic/Heading"
 import { MenuContext } from "../../store"
 import ResetCart from "./ResetCart"
-
+import Footer from "./Footer"
+import Basket from "./Basket"
 
 const Menu = () => {
     const data = useContext(MenuContext)
@@ -20,7 +21,7 @@ const Menu = () => {
                     <ResetCart resetCart={resetCart} />
                     <div className="flex items-center justify-between mb-[28px]">
                         <Heading title="Search" style={'text-[26px]'} />
-                        <Heading title={cart?.reduce((value, current) => Number(value) + Number(current.quantity), 0)} style={'text-[26px]'} />
+                        <Basket cart={cart}/>
                     </div>
                     <Search />
                     {
@@ -39,12 +40,14 @@ const Menu = () => {
                             </div>
                         )) : (
                             <div className="flex items-center justify-center mt-10">
-                                <Heading title={'No Data Found'}/>
+                                <Heading title={'No Data Found'} />
                             </div>
                         )
                     }
                 </div>
+                <Footer cart={cart}/>
             </div>
+
         </>
     )
 }
