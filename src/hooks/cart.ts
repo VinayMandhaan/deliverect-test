@@ -46,12 +46,29 @@ const useCart = () => {
         }
     }
 
+    const removeItemFromCart = (menuItem: Item) => {
+        let filterItem = cart?.find((x: Item) => x.id === menuItem?.id);
+        if (filterItem && filterItem.quantity) {
+            if (filterItem.quantity > 1) {
+                let updatedCart: Item[] = cart?.map((cart: Item) => {
+                    return cart.id === menuItem.id ? { ...cart, quantity: cart.quantity ? cart.quantity - 1 : 0 } : cart;
+                });
+                setCart(updatedCart);
+                storeItem('cart', updatedCart);
+            } else {
+                let updatedCart: Item[] = cart?.filter((cart: Item) => cart.id !== menuItem.id);
+                setCart(updatedCart);
+                storeItem('cart', updatedCart);
+            }
+        }
+    }
+
     const resetCart = useCallback(() => {
         setCart([]);
         deleteItem('cart')
     }, []);
 
-    return { cart, addItemToCart, resetCart }
+    return { cart, addItemToCart, resetCart, removeItemFromCart }
 
 }
 

@@ -9,21 +9,40 @@ interface MenuItemProps {
     index: number;
     cart: Item[],
     addItemToCart: (item: Item) => void;
+    removeItemFromCart: (item: Item) => void;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, addItemToCart }) => {
+const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, addItemToCart, removeItemFromCart }) => {
+    let cartItem = cart.find(x => x.id == item?.id)
 
     return (
-        <div onClick={() => {
-            addItemToCart(item)
-        }} key={index} className="pt-[20px] pb-[20px] border-b border-menuBorder">
+        <div key={index} className="pt-[20px] pb-[20px] border-b border-menuBorder">
             <div className="flex items-center justify-between">
                 <div className={item?.photo ? "w-[235px]" : "w-full"}>
-                    <Heading title={item?.name} style="text-[16px]" />
-                    <Paragraph title={item?.description} style="text-textGrey text-ellipsis line-clamp-2 overflow-hidden mt-2" />
-                    <div className="mt-2">
-                        <Price price={item?.price} discountedRate={item?.discount_rate} />
+                    <div onClick={() => {
+                        addItemToCart(item)
+                    }}>
+                        <Heading title={item?.name} style="text-[16px]" />
+                        <Paragraph title={item?.description} style="text-textGrey text-ellipsis line-clamp-2 overflow-hidden mt-2" />
+                        <div className="mt-2">
+                            <Price price={item?.price} discountedRate={item?.discount_rate} />
+                        </div>
                     </div>
+                    {
+                        cartItem?.quantity && (
+                            <div className="flex w-[80px] items-center justify-between mt-[12px]">
+                                <button onClick={() => {
+                                    removeItemFromCart(item)
+                                }}>-</button>
+                                <Paragraph title={cartItem.quantity} />
+                                <button onClick={() => {
+                                    addItemToCart(item)
+
+                                }}>+</button>
+                            </div>
+                        )
+                    }
+
                 </div>
                 <div>
                     {item?.photo && (

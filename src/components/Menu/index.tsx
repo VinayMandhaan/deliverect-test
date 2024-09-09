@@ -11,7 +11,8 @@ import ResetCart from "./ResetCart"
 
 const Menu = () => {
     const data = useContext(MenuContext)
-    const { cart, addItemToCart, resetCart } = useCart()
+    const { cart, addItemToCart, resetCart, removeItemFromCart } = useCart()
+    console.log(cart,'Cart')
 
     return (
         <>
@@ -31,7 +32,7 @@ const Menu = () => {
                                     data?.filteredData?.items?.map((item: Item, index: number) => {
                                         if (category.id == item.category_id) {
                                             return (
-                                                <MenuItem item={item} index={index} cart={cart} addItemToCart={addItemToCart} />
+                                                <MenuItem item={item} index={index} cart={cart} addItemToCart={addItemToCart} removeItemFromCart={removeItemFromCart} />
                                             )
                                         }
                                     })
