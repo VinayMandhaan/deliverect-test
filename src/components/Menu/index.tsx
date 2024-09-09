@@ -12,7 +12,6 @@ import ResetCart from "./ResetCart"
 const Menu = () => {
     const data = useContext(MenuContext)
     const { cart, addItemToCart, resetCart, removeItemFromCart } = useCart()
-    console.log(cart,'Cart')
 
     return (
         <>
@@ -25,7 +24,7 @@ const Menu = () => {
                     </div>
                     <Search />
                     {
-                        data?.filteredData?.categories?.map((category: CategoriesInterface, index: number) => (
+                        data?.filteredData?.items?.length ? data?.filteredData?.categories?.map((category: CategoriesInterface, index: number) => (
                             <div key={index + Math.random()}>
                                 <Categories category={category} index={index} />
                                 {
@@ -38,7 +37,11 @@ const Menu = () => {
                                     })
                                 }
                             </div>
-                        ))
+                        )) : (
+                            <div className="flex items-center justify-center mt-10">
+                                <Heading title={'No Data Found'}/>
+                            </div>
+                        )
                     }
                 </div>
             </div>
