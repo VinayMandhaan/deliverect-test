@@ -37,6 +37,19 @@ export const testData = {
             description: "Very nice cheese burger.",
             photo: "https://chatfood-cdn.s3.eu-central-1.amazonaws.com/fe-code-challenge-1/cheese-burger.jpg",
             category_id: "1"
-        }
+        },
+        {
+            id: "3",
+            name: "Avo Burger",
+            url: "avo-burger",
+            price: 4300,
+            discount_rate: 0,
+            stock: {
+              "availability": 8
+            },
+            description: "Delicious Avo Chicken Burger with Swiss Cheese.",
+            photo: null,
+            category_id: "1"
+        },
     ]
 }

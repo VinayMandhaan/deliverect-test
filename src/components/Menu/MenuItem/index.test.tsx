@@ -67,3 +67,13 @@ test("to test if item is out of stock", () => {
     fireEvent.click(heading)
     expect(global.alert).toHaveBeenCalledWith("Item out of stock")
 })
+
+test("to test name and description", () => {
+    let cart:Item[] = []
+    const addItemToCart = jest.fn()
+    render(<MenuItem item={testData.items[1]} index={0} cart={cart} addItemToCart={addItemToCart}/>)
+    const heading = screen.getByText("Cheese Burger")
+    const details = screen.getByText("Very nice cheese burger.")
+    expect(heading).toBeInTheDocument()
+    expect(details).toBeInTheDocument()
+})
