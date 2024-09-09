@@ -17,9 +17,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, addItemToCart, r
 
     return (
         <div key={index} className="pt-[20px] pb-[20px] border-b border-menuBorder">
-            <div className="flex items-center justify-between">
+            <div className="cursor-pointer flex items-center justify-between">
                 <div className={item?.photo ? "w-[235px]" : "w-full"}>
-                    <div className="cursor-pointer" onClick={() => {
+                    <div onClick={() => {
                         addItemToCart(item)
                     }}>
                         <Heading title={item?.name} style="text-[16px]" />
@@ -28,21 +28,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, addItemToCart, r
                             <Price price={item?.price} discountedRate={item?.discount_rate} />
                         </div>
                     </div>
-                    {
-                        cartItem?.quantity && (
-                            <div className="flex w-[80px] items-center justify-between mt-[12px]">
-                                <button data-testid="removeCart" onClick={() => {
-                                    removeItemFromCart(item)
-                                }}>-</button>
-                                <Paragraph title={cartItem.quantity} />
-                                <button onClick={() => {
-                                    addItemToCart(item)
-
-                                }}>+</button>
-                            </div>
-                        )
-                    }
-
                 </div>
                 <div>
                     {item?.photo && (
@@ -52,6 +37,20 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, addItemToCart, r
                     )}
                 </div>
             </div>
+            {
+                cartItem?.quantity && (
+                    <div className="flex w-[80px] items-center justify-between mt-[12px]">
+                        <button data-testid="removeCart" onClick={() => {
+                            removeItemFromCart(item)
+                        }}>-</button>
+                        <Paragraph title={cartItem.quantity} />
+                        <button onClick={() => {
+                            addItemToCart(item)
+
+                        }}>+</button>
+                    </div>
+                )
+            }
         </div>
     )
 }
