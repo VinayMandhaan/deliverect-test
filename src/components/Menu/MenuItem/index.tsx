@@ -19,7 +19,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, addItemToCart, r
         <div key={index} className="pt-[20px] pb-[20px] border-b border-menuBorder">
             <div className="flex items-center justify-between">
                 <div className={item?.photo ? "w-[235px]" : "w-full"}>
-                    <div onClick={() => {
+                    <div className="cursor-pointer" onClick={() => {
                         addItemToCart(item)
                     }}>
                         <Heading title={item?.name} style="text-[16px]" />

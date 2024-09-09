@@ -18,8 +18,12 @@ const Search: React.FC = () => {
                 item.name?.toLowerCase().includes(text.toLowerCase())
             ) || [];
 
+            const filteredCategories = data?.menuData?.categories && data.menuData?.categories.filter((category) =>
+                filteredItems.some((item) => item.category_id === category.id)
+            ) || [];
+           
             data?.setFilteredData({
-                categories: data.menuData?.categories,
+                categories: filteredCategories,
                 items: filteredItems,
             });
         }
