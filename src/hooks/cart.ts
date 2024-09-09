@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Item } from "../utils/interfaces/menuInterface"
 import { deleteItem, getItem, storeItem } from "../storage"
 
@@ -46,10 +46,10 @@ const useCart = () => {
         }
     }
 
-    const resetCart = () => {
-        setCart([])
+    const resetCart = useCallback(() => {
+        setCart([]);
         deleteItem('cart')
-    }
+    }, []);
 
     return { cart, addItemToCart, resetCart }
 
