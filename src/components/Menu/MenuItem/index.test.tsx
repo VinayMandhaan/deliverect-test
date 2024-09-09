@@ -82,3 +82,20 @@ test("to test name and description", () => {
     expect(heading).toBeInTheDocument()
     expect(details).toBeInTheDocument()
 })
+
+
+test("to test remove item from cart", () => {
+    const setCart = jest.fn()
+    const addItemToCart = jest.fn()
+    let cart:Item[] = [{
+        ...testData.items[1],
+        quantity:1
+    }]
+    const removeItemFromCart = () => {
+        setCart([])
+    }
+    render(<MenuItem item={testData.items[1]} index={0} cart={cart} addItemToCart={addItemToCart} removeItemFromCart={removeItemFromCart}/>)
+    const heading = screen.getByTestId("removeCart")
+    fireEvent.click(heading)
+    expect(setCart).toBeCalledWith([])
+})

@@ -31,7 +31,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, index, cart, addItemToCart, r
                     {
                         cartItem?.quantity && (
                             <div className="flex w-[80px] items-center justify-between mt-[12px]">
-                                <button onClick={() => {
+                                <button data-testid="removeCart" onClick={() => {
                                     removeItemFromCart(item)
                                 }}>-</button>
                                 <Paragraph title={cartItem.quantity} />
